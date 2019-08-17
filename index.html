@@ -1,22 +1,91 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    .link:hover {
+      text-decoration: underline;
+      color: coral;
+      cursor: pointer;
+    }
+    .link, a {
+      text-decoration: underline;
+      color: aquamarine;
+    }
+    .highlight {
+      color: yellow;
+    }
+    body {
+      background: black;
+      color: white;
+    }
+    .center {
+      text-align: center;
+    }
+    .left {
+      text-align: left;
+    }
+    .sideheading {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    p {
+      margin: 35px;
+    }
+  </style>
+  <script>
+    function openInNewTabWithOpener() {
+      window.open('https://malicious-domain.netlify.com');
+    }
+    function openInNewTabWithoutOpener() {
+      var newTab = window.open();
+      newTab.opener = null;
+      newTab.location='https://malicious-domain.netlify.com';
+    }
+    function openInNewTabWithNoopener() {
+      const aTag = document.createElement('a');
+      aTag.rel = 'noopener';
+      aTag.target = "_blank";
+      aTag.href = 'https://malicious-domain.netlify.com';
+      aTag.click();
+    }
+  </script>
   <h3>
-    <h1>I am your First Website</h1>
+    <h1 class="center">I am your First Website</h1>
     <h2>Clicking the below link opens the malicious website</h2>
-    <h3>Note: Try it out in Firefix or Chrome</h3>
+    <h3 class="highlight">Note: Try it out in Firefix or Chrome</h3>
     <p>
-      <div>Linking without "noopener" attribute value</div>
+      <div class="left sideheading">1.Open Link in New Tab using < a > tag without `noopener`:</div>
       <div>With mouse's left click, please proceed to
         <a href="https://malicious-domain.netlify.com" target="_blank">Visit Malicious Website!</a>
       </div>
     </p>
 
     <p>
-      <div>Linking with "noopener" attribute value</div>
+      <div class="left sideheading">2.Open Link in New Tab using < a > tag with `noopener`:</div>
       <div>With mouse's left click, please proceed to
         <a href="https://malicious-domain.netlify.com" rel="noopener" target="_blank">Visit Malicious Website!</a>
       </div>
     </p>
 
+    <p>
+      <div class="left sideheading">3.Open Link in New tab with `window.open()` and with `opener` value:</div>
+      <div>With mouse's left click, please proceed to 
+        <span class="link" onclick="openInNewTabWithOpener()">Visit Malicious Website!</span>
+      </div>
+    </p>
+
+    <p>
+      <div class="left sideheading">4.Open Link in New tab with `window.open()` and by clearing `opener`:</div>
+      <div>With mouse's left click, please proceed to 
+        <span class="link" onclick="openInNewTabWithoutOpener()">Visit Malicious Website!</span>
+      </div>
+    </p>
+
+    <p>
+      <div class="left sideheading">5.Open Link in New tab by dynamically creating < a > tag through js and executing `click()` after setting `noopener` property</div>
+        <div>With mouse's left click, please proceed to 
+          <span class="link" onclick="openInNewTabWithNoopener()">Visit Malicious Website!</span>
+      </div>
+    </p>
   </body>
 </html>

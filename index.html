@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <h3>
+    <h1>I am your First Website</h1>
+    <h2>Clicking the below link opens the malicious website</h2>
+    <h3>Please proceed to
+        <a href="https://malicious-domain.netlify.com" target="_blank">Visit Malicious Website!</a>
+    </h3>
+  </body>
+  <script>
+    if (window.opener) {
+      window.opener.location = 'https://www.dhilipkmr.dev';
+    }
+  </script>
+</html>

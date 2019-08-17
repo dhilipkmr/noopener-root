@@ -4,8 +4,19 @@
     <h1>I am your First Website</h1>
     <h2>Clicking the below link opens the malicious website</h2>
     <h3>Note: Try it out in Firefix or Chrome</h3>
-    <h4>With mouse's left click, please proceed to
-      <a href="https://malicious-domain.netlify.com" target="_blank">Visit Malicious Website!</a>
-    </h4>
+    <p>
+      <div>Linking without "noopener" attribute value</div>
+      <div>With mouse's left click, please proceed to
+        <a href="https://malicious-domain.netlify.com" target="_blank">Visit Malicious Website!</a>
+      </div>
+    </p>
+
+    <p>
+      <div>Linking with "noopener" attribute value</div>
+      <div>With mouse's left click, please proceed to
+        <a href="https://malicious-domain.netlify.com" rel="noopener" target="_blank">Visit Malicious Website!</a>
+      </div>
+    </p>
+
   </body>
 </html>
